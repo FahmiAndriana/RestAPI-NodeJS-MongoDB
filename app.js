@@ -6,6 +6,9 @@ const cors       = require('cors');
 const users      = require('./routes/user');
 const cookieParser = require("cookie-parser");
 const mongoose   = require('mongoose');
+const url = 'mongodb://localhost:27017/Homework';
+
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -14,8 +17,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const url = process.env.DB_MONGO_ATLAS;
-mongoose.connect('mongodb://localhost:27017/collect_Homework').then(() => {
+
+mongoose.connect(url).then(() => {
   console.log("DB Connected");
 });
 
